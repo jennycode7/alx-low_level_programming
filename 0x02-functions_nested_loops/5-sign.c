@@ -2,8 +2,8 @@
 #include "main.h"
 
 /**
- * print_sign -  prints the sign of a number
- * @n: integer to check
+ * print-sign - prints an integer's sign
+ * @n: integer checked
  * Return: returns 1 , 0 or -1
  */
 int print_sign(int n)
@@ -18,9 +18,14 @@ int print_sign(int n)
 		putchar('0');
 		return (0);
 	}
-	else
+	else if (n < 0)
 	{
 		putchar('-');
 		return (-1);
+	}
+	else
+	{
+		putchar('-');
+		return ('/');
 	}
 }
