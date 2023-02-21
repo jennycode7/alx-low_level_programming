@@ -8,24 +8,30 @@
  */
 int print_sign(int n)
 {
+	int x;
+
 	if (n > 0)
 	{
+		x = 1;
 		putchar('+');
-		return (1);
+		return (x);
 	}
 	else if (n == 0)
 	{
+		x = 0;
 		putchar('0');
-		return (0);
+		return (x);
 	}
 	else if (n < 0)
 	{
+		x = -1;
 		putchar('-');
-		return (-1);
+		return (x);
 	}
 	else
 	{
+		x = '/';
 		putchar('-');
-		return ('/');
+		return (x);
 	}
 }
