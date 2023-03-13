@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-	int i, result, x;
+	int i, result = 1, x;
 
 	if (argc < 3)
 	{
@@ -19,11 +19,14 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	for (i = 0; i < argc; i++)
+	else
 	{
-		x = strtol(argv[i], NULL, 10);
-		result  = result * x;
-	}
+		for (i = 1; i < argc; i++)
+		{
+			x = strtol(argv[i], NULL, 10);
+			result  = result * x;
+		}
 	printf("%d\n", result);
 	return (0);
+	}
 }
