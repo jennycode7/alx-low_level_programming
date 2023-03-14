@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	int i, x;
 	int result = 0;
 
-	if (argc < 2)
+	if (argc < 1)
 	{
 		printf("0\n");
 	}
@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (isdigit(argv[i]) == 0)
+			if (!atoi(argv[i]))
 			{
 				printf("Error\n");
 				return (1);
 			}
 			else
 			{
-				x = strtol(argv[i], NULL, 10);
+				x = atoi(argv[i]);
 				result = result + x;
 			}
 		}
