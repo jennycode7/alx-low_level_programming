@@ -13,9 +13,9 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
-	
+
 	i = 1;
 	while (str[i])
 	{
@@ -25,7 +25,7 @@ char *_strdup(char *str)
 
 	if (ptr == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	for (a = 0; a < i; a++)
