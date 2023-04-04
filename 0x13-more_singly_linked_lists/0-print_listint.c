@@ -4,7 +4,7 @@
 
 
 /**
- * print_intlist - prints all element
+ * print_listint - prints all element
  * @h: pointer to the element
  * Return: return number of element
  */
