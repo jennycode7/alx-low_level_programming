@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -8,42 +9,19 @@
  */
 int print_sign(int n)
 {
-	int x;
-
 	if (n > 0)
 	{
-		x = 1;
-		putchar('+');
-		return (x);
-	}
-	else if (n == 0)
-	{
-		x = 0;
-		putchar('0');
-		return (x);
+		write(1, "+", 1);
+		return (1);
 	}
 	else if (n < 0)
 	{
-		x = -1;
-		putchar('-');
-		return (x);
+		write(1, "-", 1);
+		return (-1);
 	}
 	else
 	{
-		x = '/';
-		putchar('-');
-		return (x);
+		write(1, "0", 1);
+		return (0);
 	}
-}
-int main(void)
-{
-    int r;
-
-    r = print_sign(-1);
-    putchar(',');
-    putchar(' ');
-    putchar(r + '0');
-    putchar('\n');
-
-    return (0);
 }
