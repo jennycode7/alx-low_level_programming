@@ -19,7 +19,7 @@ unsigned int binary_to_uint(const char *b)
 	}
 	b--;
 
-	while(b >= c)
+	while (b >= c)
 	{
 		if (*b != '0' && *b != '1')
 		{
