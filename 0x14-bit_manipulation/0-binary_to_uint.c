@@ -11,6 +11,11 @@ unsigned int binary_to_uint(const char *b)
 	int position = 0;
 	const char *c;
 
+	if (b == NULL)
+	{
+		return (0);
+	}
+
 	c = b;
 
 	while (*b != '\0')
