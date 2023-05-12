@@ -36,7 +36,7 @@ void dup_file(const char *file_from, const char *file_to)
 		exit(98);
 	}
 
-	y = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	y = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
 	while ((z = read(x, buf, 1024)) > 0)
 	{
@@ -52,13 +52,13 @@ void dup_file(const char *file_from, const char *file_to)
 		exit(98);
 	}
 
-	if (close(y) == -1)
+	if (close(x) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", y);
 		exit(100);
 	}
 
-	if (close(x) == -1)
+	if (close(y) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", x);
 		exit(100);
