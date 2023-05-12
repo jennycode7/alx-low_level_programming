@@ -1,69 +1,67 @@
-#include <stdio.h>
 #include "main.h"
 
-
+void copy_file_to_file(const char *file_from, char *file_to);
 /**
-  * duplicate_Folder - copies a file
-  * @ptr: The source file
-  * @str: The destination
-  *
-  * Return: ...
-  */
-void duplicate_Folder(const char *ptr, const char *str)
-{
-	int open_fi, foot, examine;
-	char point[1024];
+ * main - Entry point
+ * @ac: number of arguments
+ * @av: array of argument
+ * Return: returns 0
+ */
 
-	open_fi = open(ptr, O_RDONLY);
-	if (!ptr || open_fi == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", ptr);
-		exit(98);
-	}
-
-	foot = open(str, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((examine = read(open_fi, point, 1024)) > 0)
-	{
-		if (write(foot, point, examine) != examine || foot == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
-			exit(99);
-		}
-	}
-
-	if (examine == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", ptr);
-		exit(98);
-	}
-
-	if (close(open_fi) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", open_fi);
-		exit(100);
-	}
-
-	if (close(foot) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", foot);
-		exit(100);
-	}
-}
-/**
-  * main - Entry point
-  * @ac: The argument count
-  * @av: The argument vector
-  *
-  * Return: ...
-  */
 int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	copy_file_to_file(av[1], av[2]);
+	return (0);
+}
 
-	duplicate_Folder(av[1], av[2]);
-	exit(0);
+/**
+ * copy_file_to_file - copies file content from source to destination
+ * @file_from: source
+ * @file_to: destination
+ */
+void copy_file_to_file(const char *file_from, const char *file_to)
+{
+	int x, y, z;
+	char buf[1024];
+
+	x = open(file_from, O_RDONLY);
+	if (!file_from || x == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+
+	y = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+
+	while ((z = read(x, buf, 1024)) > 0)
+	{
+		if ((write(y, buf, z)) == -1 || y == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
+	}
+	if (z == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", file_from);
+		exit(99);
+	}
+
+	if (close(y) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", y);
+		exit(100);
+	}
+
+	if (close(x) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", x);
+		exit(100);
+	}
+
 }
