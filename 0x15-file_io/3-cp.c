@@ -1,6 +1,6 @@
 #include "main.h"
 
-void copy_file_to_file(const char *file_from, char *file_to);
+void dup_file(const char *file_from, const char *file_to);
 /**
  * main - Entry point
  * @ac: number of arguments
@@ -15,16 +15,16 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	copy_file_to_file(av[1], av[2]);
+	dup_file(av[1], av[2]);
 	return (0);
 }
 
 /**
- * copy_file_to_file - copies file content from source to destination
+ * dup_file - copies file content from source to destination
  * @file_from: source
  * @file_to: destination
  */
-void copy_file_to_file(const char *file_from, const char *file_to)
+void dup_file(const char *file_from, const char *file_to)
 {
 	int x, y, z;
 	char buf[1024];
