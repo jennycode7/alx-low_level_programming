@@ -16,7 +16,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	dup_file(av[1], av[2]);
-	return (0);
+	exit(0);
 }
 
 /**
@@ -54,13 +54,13 @@ void dup_file(const char *file_from, const char *file_to)
 
 	if (close(x) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", y);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", x);
 		exit(100);
 	}
 
 	if (close(y) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", x);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", y);
 		exit(100);
 	}
 
