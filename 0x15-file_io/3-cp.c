@@ -11,41 +11,40 @@
   */
 void duplicate_Folder(const char *ptr, const char *str)
 {
-	int open_fi, foot, examine;
-	char point[1024];
-
-	open_fi = open(ptr, O_RDONLY);
-	if (!ptr || open_fi == -1)
+	int x, y, z;
+	char buf[1024];
+	
+	x = open(ptr, O_RDONLY);
+	if (!ptr || x == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", ptr);
-		exit(98);
+		exit (98);
 	}
 
-	foot = open(str, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((examine = read(open_fi, point, 1024)) > 0)
+	y = open(str, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	while ((z = read(x, buf, 1024)) > 0)
 	{
-		if (write(foot, point, examine) != examine || foot == -1)
+		if ((write(y, buf, z)) != z || y == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
 			exit(99);
 		}
 	}
 
-	if (examine == -1)
+	if (z == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", ptr);
 		exit(98);
 	}
-
-	if (close(open_fi) == -1)
+	if ((close(x) == -1))
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", open_fi);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", x);
 		exit(100);
 	}
-
-	if (close(foot) == -1)
+	if ((close(y) == -1))
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", foot);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", y);
 		exit(100);
 	}
 }
