@@ -40,7 +40,7 @@ void dup_file(const char *file_from, const char *file_to)
 
 	while ((z = read(x, buf, 1024)) > 0)
 	{
-		if ((write(y, buf, z)) == -1 || y == -1)
+		if ((write(y, buf, z)) != z || y == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", file_to);
 			exit(99);
@@ -49,7 +49,7 @@ void dup_file(const char *file_from, const char *file_to)
 	if (z == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", file_from);
-		exit(99);
+		exit(98);
 	}
 
 	if (close(y) == -1)
