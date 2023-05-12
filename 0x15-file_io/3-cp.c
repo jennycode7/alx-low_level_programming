@@ -32,7 +32,7 @@ void dup_file(const char *file_from, const char *file_to)
 	x = open(file_from, O_RDONLY);
 	if (!file_from || x == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -42,13 +42,13 @@ void dup_file(const char *file_from, const char *file_to)
 	{
 		if ((write(y, buf, z)) != z || y == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 	}
 	if (z == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_from);
 		exit(98);
 	}
 
