@@ -13,12 +13,12 @@ void duplicate_Folder(const char *ptr, const char *str)
 {
 	int x, y, z;
 	char buf[1024];
-	
+
 	x = open(ptr, O_RDONLY);
 	if (!ptr || x == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", ptr);
-		exit (98);
+		exit(98);
 	}
 
 	y = open(str, O_CREAT | O_WRONLY | O_TRUNC, 0664);
