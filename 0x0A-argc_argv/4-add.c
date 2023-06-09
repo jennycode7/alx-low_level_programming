@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 	{
 		printf("%d\n", y);
 	}
-	
+
 	else
 	{
 		for (x = 1; x < argc; x++)
