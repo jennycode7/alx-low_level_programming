@@ -49,16 +49,23 @@ int main(int argc, char **argv)
 {
 	int x, y;
 
-	x = _atoi(argv[1]);
-	y = _atoi(argv[2]);
-
-	if (argc < 3 || argc > 3)
+	if (argc < 3)
 	{
+		x = -1;
 		printf("Error\n");
-		return (-1);
+		return (x);
+	}
+	else if (argc > 3)
+	{
+		y = -1;
+		printf("Error\n");
+		return (y);
 	}
 	else
 	{
+		x = _atoi(argv[1]);
+		y = _atoi(argv[2]);
+
 		printf("%d\n", x * y);
 		return (0);
 	}
