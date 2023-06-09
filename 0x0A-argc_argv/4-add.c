@@ -95,8 +95,7 @@ int _atoi(char *s)
  */
 int _strchr(char *s, char c)
 {
-	do
-	{
+	do {
 		if (*s == c)
 		{
 			return (1);
