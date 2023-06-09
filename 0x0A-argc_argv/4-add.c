@@ -88,6 +88,24 @@ int _atoi(char *s)
 }
 
 /**
+ * _strchr - locates charcter
+ * @s: ..
+ * @c: ..
+ * Return: return 1 or 0
+ */
+int _strchr(char *s, char c)
+{
+	do
+	{
+		if (*s == c)
+		{
+			return (1);
+		}
+	} while (*s++ != '\0');
+
+	return (0);
+}
+/**
  * main - entry point
  * @argc: number of vectors
  * @argv: vectors
@@ -106,6 +124,11 @@ int main(int argc, char **argv)
 	{
 		for (x = 1; x < argc; x++)
 		{
+			if (_strchr(argv[x], '-') != 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 			z = _atoi(argv[x]);
 			if (z == 0 && _strcmp(argv[x], "0") != 0)
 			{
