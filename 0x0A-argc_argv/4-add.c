@@ -123,7 +123,7 @@ int main(int argc, char **argv)
 	{
 		for (x = 1; x < argc; x++)
 		{
-			if (_strchr(argv[x], '-') != 0)
+			if (_strchr(argv[x], 'e') != 0)
 			{
 				printf("Error\n");
 				return (1);
