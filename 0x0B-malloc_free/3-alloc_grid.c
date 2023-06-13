@@ -1,5 +1,12 @@
 #include "main.h"
 
+
+/**
+ * alloc_grid - allocates memory
+ * @width: width
+ * @height: height
+ * Return: returns grid
+ */
 int **alloc_grid(int width, int height)
 {
 	int **grid;
@@ -19,6 +26,7 @@ int **alloc_grid(int width, int height)
 
 	if (grid == NULL)
 	{
+		free(grid);
 		return (NULL);
 	}
 
