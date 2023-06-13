@@ -20,7 +20,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		s1 = "";
 	}
-	
+
 	len1 = strlen(s1);
 
 	length = strlen(s1);
@@ -36,7 +36,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		string[x] = s1[x];
 	}
-	
+
 	for (next = x; next < length; next++)
 	{
 		string[next] = s2[i++];
