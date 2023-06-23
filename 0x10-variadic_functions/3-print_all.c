@@ -16,7 +16,7 @@ void print_all(const char * const format, ...)
 	}
 	while (format[x])
 	{
-		if (x >= n - 1)
+		if (x >= i - 1)
 		{
 			space = "";
 		}
