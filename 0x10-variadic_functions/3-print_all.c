@@ -10,11 +10,16 @@ void print_all(const char * const format, ...)
 	int x = 0, i = 0;
 
 	va_start(ap, format);
-	while (format[i] && format)
+	while (format[i] && format != NULL)
 	{
 		i++;
 	}
-	while (format[x])
+
+	if (i == 0)
+	{
+		return;
+	}
+	while (format[x] && i != 0)
 	{
 		if (x >= i - 1)
 		{
@@ -33,13 +38,14 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				str = va_arg(ap, char *);
-				if (str == NULL)
-					str = "(nil)";
+				str = str ? str : "(nill);
 				printf("%s%s", str, space);
 				break;
 		}
 		x++;
 	}
 	va_end(ap);
+	
 	putchar('\n');
+
 }
