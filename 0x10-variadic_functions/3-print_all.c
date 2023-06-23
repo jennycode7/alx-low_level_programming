@@ -14,17 +14,12 @@ void print_all(const char * const format, ...)
 	{
 		i++;
 	}
-
-	if (i == 0)
-	{
+	if (i == 0 && format[i] == NULL)
 		return;
-	}
 	while (format[x] && i != 0)
 	{
 		if (x >= i - 1)
-		{
 			space = "";
-		}
 		switch (format[x])
 		{
 			case 'c':
@@ -45,7 +40,5 @@ void print_all(const char * const format, ...)
 		x++;
 	}
 	va_end(ap);
-	
 	putchar('\n');
-
 }
