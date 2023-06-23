@@ -14,8 +14,6 @@ void print_all(const char * const format, ...)
 	{
 		i++;
 	}
-	if (i == 0 && format == NULL)
-		return;
 	while (format[x] && i != 0)
 	{
 		if (x >= i - 1)
