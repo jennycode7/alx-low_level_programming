@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_list
+ * print_list - prints list
  * @h: head
  * Return: size_t
  */
