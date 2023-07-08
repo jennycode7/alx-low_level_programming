@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 
 	z = x - 1;
 
-	while ( z >= 0)
+	while (z >= 0)
 	{
 		printf("%d", bin[z]);
 		z--;
