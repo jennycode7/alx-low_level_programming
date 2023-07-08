@@ -11,7 +11,7 @@ void print_binary(unsigned long int n)
 
 	if (n == 0)
 	{
-		printf("0");
+		putchar('0');
 		return;
 	}
 
@@ -27,7 +27,7 @@ void print_binary(unsigned long int n)
 
 	while (z >= 0)
 	{
-		printf("%d", bin[z]);
+		putchar(bin[z] + '0');
 		z--;
 	}
 }
