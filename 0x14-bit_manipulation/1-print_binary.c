@@ -6,28 +6,34 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bin[40];
-	int x = 0, y = 0, z;
-
 	if (n == 0)
 	{
 		putchar('0');
 		return;
 	}
 
-	while (n > 0)
+	binary(n);
+}
+
+/**
+ * binary - for binary
+ * @n: ...
+ */
+void binary(unsigned long int n)
+{
+	if (n < 1)
 	{
-		bin[y] = n % 2;
-		n /= 2;
-		y++;
-		x++;
+		return;
 	}
 
-	z = x - 1;
+	binary(n >> 1);
 
-	while (z >= 0)
+	if ((n & 1) == 1)
 	{
-		putchar(bin[z] + '0');
-		z--;
+		putchar('1');
+	}
+	else
+	{
+		putchar('0');
 	}
 }
