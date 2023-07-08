@@ -20,6 +20,11 @@ int get_bit(unsigned long int n, unsigned int index)
 		n /= 2;
 	}
 
+	if (index > x && index < 63)
+	{
+		return (0);
+	}
+
 	if ((n & 1) == 1)
 	{
 		return (1);
