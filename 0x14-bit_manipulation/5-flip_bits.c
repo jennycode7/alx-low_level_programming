@@ -11,9 +11,14 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int amount = 0, num = 0;
 
+	if (n == 0 || m == 0)
+	{
+		return (-1);
+	}
+
 	num = n ^ m;
 
-	while (num && m != 0)
+	while (num)
 	{
 		if (num & 1)
 		{
