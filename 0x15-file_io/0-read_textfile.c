@@ -14,16 +14,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 
 	str = malloc(sizeof(char *) * letters);
-	if (str == NULL)
+	if (!str)
 	{
 		return (0);
 	}
 
-	if (filename == NULL)
+	if (!filename)
 	{
 		return (0);
 	}
-
 	fd = open(filename, O_RDONLY, 0600);
 	if (fd == -1)
 	{
