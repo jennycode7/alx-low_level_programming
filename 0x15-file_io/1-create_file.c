@@ -1,6 +1,11 @@
 #include "main.h"
 
-
+/**
+ * create_file - creates a file
+ * @filename: ...
+ * @text_content: ....
+ * Return: int
+ */
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
