@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * append_text_to_file: appends
+ * append_text_to_file - appends
  * @filename: ...
  * @text_content: ...
  * Return: int
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, x;
+	int fd;
 
 	if (!filename)
 	{
@@ -21,7 +21,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	if (textname)
+	if (text_content)
 	{
 		if (write(fd, text_content, strlen(text_content)) == -1)
 		{
