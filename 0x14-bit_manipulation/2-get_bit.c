@@ -22,5 +22,5 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	x = n >> index;
 
-	return ((y = x & 1) ? y : -1);
+	return (x ? (y = x & 1) : -1);
 }
