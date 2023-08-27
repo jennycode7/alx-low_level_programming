@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * delete_dnodeint_ar_index - delete node
+ * delete_dnodeint_at_index - delete node
  * @head: head
  * @index: index
  * Return: an int
@@ -46,6 +46,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		current->next->prev = current->prev;
 	}
-	free (current);
+	free(current);
 	return (1);
 }
