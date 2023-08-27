@@ -2,7 +2,7 @@
 
 
 /**
- * dlistint_t - get node at index
+ * get_dnodeint_at_index - get node at index
  * @head: head
  * @index: index
  * Return: dlistint_t
