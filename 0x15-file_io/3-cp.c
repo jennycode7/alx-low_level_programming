@@ -8,6 +8,7 @@ void copy_file(const char *src, const char *dest);
  * main - Entry point
  * @argc: argument count
  * @argv: argument vector
+ * Return: int
  */
 
 int main(int argc, char **argv)
